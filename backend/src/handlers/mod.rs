@@ -1,5 +1,5 @@
-mod deploy;
+mod upload;
 mod root;
 
-pub use deploy::deploy;
+pub use upload::upload;
 pub use root::home;

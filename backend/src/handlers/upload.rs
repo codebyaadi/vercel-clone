@@ -10,7 +10,7 @@ use std::path::PathBuf;
 use crate::aws;
 use crate::utils;
 
-pub async fn deploy(Json(body): Json<Value>, mut redis_con: MultiplexedConnection) -> Json<Value> {
+pub async fn upload(Json(body): Json<Value>, mut redis_con: MultiplexedConnection) -> Json<Value> {
     let repo_url = body["repo_url"].as_str().unwrap_or_default();
     let id = utils::generate();
 

@@ -20,7 +20,7 @@ async fn main() {
 
     let app = Router::new().route("/", get(handlers::home)).route(
         "/deploy",
-        post(move |body: Json<Value>| handlers::deploy(body, con.clone())),
+        post(move |body: Json<Value>| handlers::upload(body, con.clone())),
     );
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 8080));
