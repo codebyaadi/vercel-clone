@@ -1,5 +1,5 @@
-mod upload;
 mod root;
+mod upload;
 
-pub use upload::upload;
 pub use root::home;
+pub use upload::upload;
