@@ -1,0 +1,16 @@
+version: '1.0'
+services:
+  uploader:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - redis
+  deployer:
+    build: ./builder
+    depends_on:
+      - redis
+  redis:
+    image: redis:latest
