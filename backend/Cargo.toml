@@ -18,7 +18,3 @@ redis = { version = "0.25.3", features = ["tokio-comp"] }
 serde_json = "1.0.115"
 tokio = { version = "1.37.0", features = ["full"] }
 tower = "0.4.13"
-
-[dev-dependencies]
-httpc-test = "0.1.9"
-anyhow = "1.0.81"

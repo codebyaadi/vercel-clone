@@ -1,6 +1,0 @@
-POST http://localhost:8080/deploy
-Content-Type: application/json
-
-{
-    "repo_url": "https://github.com/codebyaadi/pcinfo-crawler"
-}
