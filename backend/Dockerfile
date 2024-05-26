@@ -34,7 +34,7 @@ FROM ubuntu:latest
 
 # Install Redis and CA certificates
 RUN apt-get update && \
-    apt-get install -y redis-server ca-certificates && \
+    apt-get install -y ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the release binary from the builder stage
@@ -44,4 +44,4 @@ COPY --from=builder /app/target/release/backend /usr/local/bin/backend
 EXPOSE 8080
 
 # Start Redis in the background
-CMD service redis-server start && backend
+CMD backend
