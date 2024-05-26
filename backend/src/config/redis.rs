@@ -1,5 +1,5 @@
-use std::env;
 use redis::{Client, RedisError};
+use std::env;
 
 pub async fn get_redis_conn() -> Result<redis::aio::MultiplexedConnection, RedisError> {
     let redis_url = env::var("REDIS_URL").expect("REDIS_URL environment variable not set");
