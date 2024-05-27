@@ -9,5 +9,11 @@ services:
       - ./backend/.env
     depends_on:
       - redis
+  builder:
+    build: ./builder
+    env_file:
+      - ./builder/.env
+    depends_on:
+      - redis
   redis:
     image: redis:latest
