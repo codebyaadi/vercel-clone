@@ -2,6 +2,7 @@ use redis::{aio::MultiplexedConnection, AsyncCommands, RedisError};
 // use std::time::Duration;
 
 use crate::aws::download_files;
+use crate::utils::build_project;
 
 pub async fn start_deployment(mut redis_con: MultiplexedConnection) {
     loop {
@@ -14,6 +15,8 @@ pub async fn start_deployment(mut redis_con: MultiplexedConnection) {
                     println!("Fetched the build id (as string): {}", build_id_str);
                     if let Err(err) = download_files(&build_id_str).await {
                         eprintln!("Error while downloading files: {}", err);
+                    } else if let Err(err) = build_project(&build_id_str).await {
+                        eprintln!("Error while building project: {}", err);
                     }
                 } else {
                     println!("Fetched the build id (as bytes): {:?}", build_id_bytes);
